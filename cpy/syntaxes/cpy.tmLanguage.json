@@ -1,0 +1,99 @@
+{
+	"$schema": "./tmlanguage.json",
+	"name": "cpy",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#builtins"
+		},
+		{
+			"include": "#function"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#single-strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#embedded-python"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.cpy",
+				"match": "\\b(如果|当|对于|先返回|返回|又如果|否则|退出|继续)\\b"
+			}, {
+				"name": "keyword.operator.logical.cpy",
+				"match": "\\b(真|假|空|或|并且|且|没有|非|就是|是)\\b"
+			},
+			{
+				"name": "keyword.operator.logical.cpy",
+				"match": "\\b(大于等于|小于等于|不等于|等于|大于|小于|的)\\b"
+			},
+			{
+				"name": "keyword.other.cpy",
+				"match": "\\b(定义类|类|从|导入|称作|不属于|属于|跳过|删除|尝试|捕捉|最后|抛出|闭包|删除|以|把)\\b"
+			},{
+				"name": "keyword.other.nospace.cpy",
+				"match": "(当|的|等于)"
+			}]
+		},
+		"builtins": {
+			"patterns": [{
+				"name": "support.function.builtins.cpy",
+				"match": "\\b(打印|输入|整数|浮点数|字符串|打开|初始化|区间)\\b"
+			}]
+		},
+		"function": {
+			"match": "(定义) (.+?)\\((.*?)\\)",
+			"captures": {
+				"0": {
+					"name": "test.cpy"
+				},
+				"1": {
+					"name": "keyword.other.cpy"
+				},
+				"2": {
+					"name": "support.function.cpy"
+				},
+				"3": {
+					"name": "variable.parameter.cpy"
+				}
+			}
+		},
+		"strings": {
+			"name": "string.quoted.double.cpy",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.cpy",
+					"match": "\\\\."
+				}
+			]
+		},
+		"single-strings": {
+			"name": "string.quoted.single.cpy",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.cpy",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"name": "comment.cpy",
+			"match": "#.*"
+		}
+	},
+	"scopeName": "source.cpy"
+}

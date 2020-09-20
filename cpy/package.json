@@ -1,0 +1,29 @@
+{
+    "name": "cpy",
+    "displayName": "cpy",
+    "description": "for cpy",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.49.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "cpy",
+            "aliases": ["cpy", "cpy"],
+            "extensions": [".cpy"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "cpy",
+            "scopeName": "source.cpy",
+            "path": "./syntaxes/cpy.tmLanguage.json"
+        },{
+            "language": "python",
+            "scopeName": "source.python",
+            "path": "./syntaxes/python.tmLanguage.json"
+        }]
+    }
+}
